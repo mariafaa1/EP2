@@ -87,3 +87,19 @@ def calcula_pontos_sequencia_alta(dados_rolados):
             if contador == 5:
                 return 30
     return 0
+
+
+# EXERCÍCIO 8
+def calcula_pontos_full_house(dados_rolados):
+    for i in range(len(dados_rolados)):
+        for j in range(0, len(dados_rolados)-i-1):
+            if dados_rolados[j] > dados_rolados[j+1]:
+                dados_rolados[j], dados_rolados[j+1] = dados_rolados[j+1], dados_rolados[j]
+    soma = 0
+    if (dados_rolados[0] == dados_rolados[1]) and (dados_rolados[2] == dados_rolados[3] == dados_rolados[4]):
+        for i in range(len(dados_rolados)):
+            soma += dados_rolados[i]
+    if (dados_rolados[0] == dados_rolados[1] == dados_rolados[2]) and (dados_rolados[3] == dados_rolados[4]):
+        for dado in range(len(dados_rolados)):
+            soma += dados_rolados[i]
+    return soma
