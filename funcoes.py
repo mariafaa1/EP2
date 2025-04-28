@@ -28,12 +28,11 @@ def remover_dado(dados_rolados,dados_no_estoque,dado_para_remover):
 
 # EXERCÍCIO 4
 def calcula_pontos_regra_simples(dados_rolados):
-    pontos = {}
+    pontos = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
     for dado in dados_rolados:
         if dado in pontos:
             pontos[dado] += dado
+        else:
+            pontos[dado] = dado  
     return pontos
-
-teste = calcula_pontos_regra_simples([2,3,4,5,2])
-print (teste)
 
