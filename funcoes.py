@@ -1,3 +1,4 @@
+#EXERCICIO 1
 import random
 def rolar_dados(n):
     lista = []
