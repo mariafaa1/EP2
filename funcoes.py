@@ -55,7 +55,6 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
         for j in range(0, len(dados)-i-1):
             if dados[j] > dados[j+1]:
                 dados[j], dados[j+1] = dados[j+1], dados[j]
-
     for i in range(len(dados)):
         contador = 1 
         atual = dados[i]
@@ -65,4 +64,26 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
                 atual = dados[j]
             if contador == 4:
                 return 15
+    return 0
+
+
+# EXERCÍCIO 7
+def calcula_pontos_sequencia_alta(dados_rolados):
+    dados = []
+    for dado in dados_rolados:
+        if dado not in dados:
+            dados.append(dado)
+    for i in range(len(dados)):
+        for j in range(0, len(dados)-i-1):
+            if dados[j] > dados[j+1]:
+                dados[j], dados[j+1] = dados[j+1], dados[j]
+    for i in range(len(dados)):
+        contador = 1 
+        atual = dados[i]
+        for j in range(i + 1, len(dados)):  
+            if dados[j] == atual + 1:
+                contador += 1
+                atual = dados[j]
+            if contador == 5:
+                return 30
     return 0
