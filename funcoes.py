@@ -36,3 +36,11 @@ def calcula_pontos_regra_simples(dados_rolados):
             pontos[dado] = dado  
     return pontos
 
+
+# EXERCÍCIO 5
+def calcula_pontos_soma(dados_rolados):
+    soma = 0
+    for dado in dados_rolados:
+        soma += dado
+    return soma
+
