@@ -48,7 +48,7 @@ def calcula_pontos_soma(dados_rolados):
 # EXERCÍCIO 6
 def calcula_pontos_sequencia_baixa(dados_rolados):
     dados = []
-    for dado in dados:
+    for dado in dados_rolados:
         if dado not in dados:
             dados.append(dado)
     for i in range(len(dados)):
@@ -56,13 +56,13 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
             if dados[j] > dados[j+1]:
                 dados[j], dados[j+1] = dados[j+1], dados[j]
 
-    for k in range(len(dados)):
+    for i in range(len(dados)):
         contador = 1 
-        atual = dados[k]
-        for t in range(k + 1, len(dados)):  
-            if dados[t] == atual + 1:
+        atual = dados[i]
+        for j in range(i + 1, len(dados)):  
+            if dados[j] == atual + 1:
                 contador += 1
-                atual = dados[t]
+                atual = dados[j]
             if contador == 4:
                 return 15
     return 0
