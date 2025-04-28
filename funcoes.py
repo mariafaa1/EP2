@@ -1,4 +1,4 @@
-#EXERCICIO 1
+# EXERCÍCIO 1
 import random
 def rolar_dados(n):
     lista = []
@@ -6,12 +6,11 @@ def rolar_dados(n):
     while i < n:
         s = random.randint(1,6)
         lista.append(s)
-
         i+=1
-
     return lista
 
-#EXERCÍCIO 2
+
+# EXERCÍCIO 2
 def guardar_dado(dados_rolados,dados_no_estoque,dado_para_guardar):
     dado = dados_rolados[dado_para_guardar]
     dados_no_estoque.append(dado)
@@ -19,4 +18,9 @@ def guardar_dado(dados_rolados,dados_no_estoque,dado_para_guardar):
     return [dados_rolados,dados_no_estoque]
 
 
-
+# EXERCÍCIO 3
+def remover_dado(dados_rolados,dados_no_estoque,dado_para_remover):
+    dado = dados_no_estoque[dado_para_remover]
+    dados_rolados.append(dado)
+    del dados_no_estoque[dado_para_remover]
+    return [dados_rolados,dados_no_estoque]
