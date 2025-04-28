@@ -13,10 +13,10 @@ def rolar_dados(n):
 
 #EXERCÍCIO 2
 def guardar_dado(dados_rolados,dados_no_estoque,dado_para_guardar):
-    lista = []
-    lista.append(dados_no_estoque)
-    lista.append(dados_rolados)
-    return lista
+    dado = dados_rolados[dado_para_guardar]
+    dados_no_estoque.append(dado)
+    del dados_rolados[dado_para_guardar]
+    return [dados_rolados,dados_no_estoque]
 
 
 
