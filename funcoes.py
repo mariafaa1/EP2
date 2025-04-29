@@ -96,10 +96,13 @@ def calcula_pontos_full_house(dados_rolados):
             if dados_rolados[j] > dados_rolados[j+1]:
                 dados_rolados[j], dados_rolados[j+1] = dados_rolados[j+1], dados_rolados[j]
     soma = 0
-    if (dados_rolados[0] == dados_rolados[1]) and (dados_rolados[2] == dados_rolados[3] == dados_rolados[4]):
-        for i in range(len(dados_rolados)):
-            soma += dados_rolados[i]
-    if (dados_rolados[0] == dados_rolados[1] == dados_rolados[2]) and (dados_rolados[3] == dados_rolados[4]):
-        for dado in range(len(dados_rolados)):
+    c1 = dados_rolados[0] == dados_rolados[1]
+    c2 = dados_rolados[2] == dados_rolados[3] == dados_rolados[4]
+    c3 = dados_rolados[1] != dados_rolados[2]
+    c4 = dados_rolados[0] == dados_rolados[1] == dados_rolados[2]
+    c5 = dados_rolados[3] == dados_rolados[4]
+    c6 = dados_rolados[2] != dados_rolados[3]   
+    if (c1 and c2 and c3)  or (c4 and c5 and c6):
+       for i in range(len(dados_rolados)):            
             soma += dados_rolados[i]
     return soma
