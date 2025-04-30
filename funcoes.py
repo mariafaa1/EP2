@@ -125,11 +125,11 @@ def calcula_pontos_quadra(dados_rolados):
 
 #EXERCICIO 10
 def calcula_pontos_quina(dados_rolados):
-    contador = 1
-    soma = 0
-    for i in range(len(dados_rolados)-1):
-        if dados_rolados[i+1] == dados_rolados[i]:
-            contador += 1
-    if contador == 5:
-        soma = 50
-    return soma
+    for i in range(len(dados_rolados)):
+        contador = 0
+        for j in range(len(dados_rolados)):
+            if dados_rolados[j] == dados_rolados[i]:
+                contador += 1
+        if contador >= 5:
+            return 50
+    return 0
