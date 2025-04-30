@@ -108,14 +108,14 @@ def calcula_pontos_full_house(dados_rolados):
     return soma
 
 
-#EXERCICIO 9
+# EXERCÍCIO 9
 def calcula_pontos_quadra(dados_rolados):
     for i in range(len(dados_rolados)):
         for j in range(0, len(dados_rolados)-i-1):
             if dados_rolados[j] > dados_rolados[j+1]:
                 dados_rolados[j], dados_rolados[j+1] = dados_rolados[j+1], dados_rolados[j]
     soma = 0
-    c1 = dados_rolados[0] == dados_rolados[1]== dados_rolados[2] == dados_rolados[3]
+    c1 = dados_rolados[0] == dados_rolados[1] == dados_rolados[2] == dados_rolados[3]
     c2 = dados_rolados[3] != dados_rolados[4]
     c3 = dados_rolados[1] == dados_rolados[2] == dados_rolados[3] == dados_rolados[4]
     c4 = dados_rolados[0] != dados_rolados[1]
