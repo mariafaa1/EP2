@@ -123,7 +123,7 @@ def calcula_pontos_quadra(dados_rolados):
     return 0
 
 
-#EXERCICIO 10
+# EXERCÍCIO 10
 def calcula_pontos_quina(dados_rolados):
     for i in range(len(dados_rolados)):
         contador = 0
