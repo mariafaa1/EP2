@@ -41,9 +41,10 @@ while rodadas < 12:
         elif jogada == "2":
             dado_para_guardar = int(input("Digite o índice do dado a ser removido (0 a 4): "))
             remover_dado(dados_rolados, dados_no_estoque, dado_para_guardar)
+
         elif jogada == "3":
             if rerrolagens < 2:
-                dados_rolados = rolar_dados(n)
+                dados_rolados = rolar_dados(n-len(dados_no_estoque))
                 rerrolagens += 1
             else:
                 print("Você já usou todas as rerrolagens.")
@@ -53,14 +54,18 @@ while rodadas < 12:
 
         
         elif jogada == "0":
+            print(f"Dados disponíveis para pontuar: {dados_rolados + dados_no_estoque}")
             categoria = input("Digite a combinação desejada: ")
 
             categorias_validas = ["1", "2", "3", "4", "5", "6","cinco_iguais", "full_house", "quadra","sem_combinacao", "sequencia_alta", "sequencia_baixa"]
-
+            categorias_simples = ["1", "2", "3", "4", "5", "6"]
+            categorias_avançadas = ["cinco_iguais", "full_house", "quadra","sem_combinacao", "sequencia_alta", "sequencia_baixa"]
+ 
             if categoria in categorias_validas:
-                if categoria in cartela_de_pontos and cartela_de_pontos[categoria] == -1:
+                if (categoria in categorias_simples and cartela_de_pontos['regra_simples'][int(categoria)] == -1) or (categoria in categorias_avançadas and cartela_de_pontos['regra_avancada'][categoria] == -1):
                     faz_jogada(dados_rolados + dados_no_estoque, categoria, cartela_de_pontos)
                     jogada_concluida = True
+ 
                 else:
                     print("Essa combinação já foi utilizada.")
             else:
