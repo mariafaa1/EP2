@@ -53,7 +53,6 @@ while rodadas < 12:
 
         
         elif jogada == "0":
-            print(f"Dados disponíveis para pontuar: {dados_rolados + dados_no_estoque}")
             categoria = input("Digite a combinação desejada: ")
 
             categorias_validas = ["1", "2", "3", "4", "5", "6","cinco_iguais", "full_house", "quadra","sem_combinacao", "sequencia_alta", "sequencia_baixa"]
