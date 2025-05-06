@@ -154,3 +154,20 @@ def faz_jogada(dados_rolados, categoria, cartela_de_pontos):
 
 
 # EXERCÍCIO 13
+def imprime_cartela(cartela_de_jogos):
+    print("Cartela de Pontos:")
+    print("-"*25)    
+    for i in range(1, 7):
+        filler = " " * (15 - len(str(i)))
+        if cartela_de_jogos['regra_simples'][i] != -1:
+            print(f"| {i}: {filler}| {cartela_de_jogos['regra_simples'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    for i in cartela_de_jogos['regra_avancada'].keys():
+        filler = " " * (15 - len(str(i)))
+        if cartela_de_jogos['regra_avancada'][i] != -1:
+            print(f"| {i}: {filler}| {cartela_de_jogos['regra_avancada'][i]:02} |")
+        else:
+            print(f"| {i}: {filler}|    |")
+    print("-"*25)
+    
