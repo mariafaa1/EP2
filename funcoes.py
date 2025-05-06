@@ -142,6 +142,14 @@ def calcula_pontos_regra_avancada(dados_rolados):
 
 
 # EXERCÍCIO 12
+def faz_jogada(dados_rolados, categoria, cartela_de_pontos):
+    if categoria in [1, 2, 3, 4, 5, 6]:
+        pontos_simples = calcula_pontos_regra_simples(dados_rolados)
+        cartela_de_pontos['regra_simples'][categoria] = pontos_simples.get(str(categoria), 0)
+    else:
+        pontos_avancados = calcula_pontos_regra_avancada(dados_rolados)
+        cartela_de_pontos['regra_avancada'][categoria] = pontos_avancados.get(categoria, 0)
+    return cartela_de_pontos
 
 
 
