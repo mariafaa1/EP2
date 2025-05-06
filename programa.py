@@ -1,4 +1,5 @@
 import random
+from funcoes import *
 
 imprime_cartela(cartela_de_pontos)
 
