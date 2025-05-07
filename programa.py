@@ -37,27 +37,33 @@ while -1 in cartela['regra_simples'].values() and rodadas != 12 or -1 in cartela
         elif opcao == '4':
             f.imprime_cartela(cartela)
 
-elif opcao == '0':
-    print("Digite a combinação desejada:")
-    jogada_feita = False
-    while not jogada_feita:
-        resposta = input()
-        if resposta.isdigit():
-            resposta_int = int(resposta)
-        else:
-            resposta_int = None
-        if resposta_int in cartela['regra_simples']:
-            if cartela['regra_simples'][resposta_int] == -1:
-                f.faz_jogada(dados_rolados + dados_guardados, resposta, cartela)
-                jogada_feita = True
-            else:
-                print("Essa combinação já foi utilizada.")
-        elif resposta in cartela['regra_avancada']:
-            if cartela['regra_avancada'][resposta] == -1:
-                f.faz_jogada(dados_rolados + dados_guardados, resposta, cartela)
-                jogada_feita = True
-            else:
-                print("Essa combinação já foi utilizada.")
-        else:
-            print("Combinação inválida. Tente novamente.")
-    rodada_em_andamento = False
+        elif opcao == '0':
+            print("Digite a combinação desejada:")
+            jogada_feita = False
+            while not jogada_feita:
+                resposta = input()
+                if resposta.isdigit():
+                    resposta_int = int(resposta)
+                else:
+                    resposta_int = None
+                if resposta_int in cartela['regra_simples']:
+                    if cartela['regra_simples'][resposta_int] == -1:
+                        f.faz_jogada(dados_rolados + dados_guardados, resposta, cartela)
+                        jogada_feita = True
+                    else:
+                        print("Essa combinação já foi utilizada.")
+                elif resposta in cartela['regra_avancada']:
+                    if cartela['regra_avancada'][resposta] == -1:
+                        f.faz_jogada(dados_rolados + dados_guardados, resposta, cartela)
+                        jogada_feita = True
+                    else:
+                        print("Essa combinação já foi utilizada.")
+                else:
+                    print("Combinação inválida. Tente novamente.")
+            rodada_em_andamento = False
+total_simples = sum(cartela['regra_simples'].values())
+total_avancada = sum(cartela['regra_avancada'].values())
+total = total_simples + total_avancada + (35 if total_simples >= 63 else 0)
+
+f.imprime_cartela(cartela)
+print(f"Pontuação total: {total}")
