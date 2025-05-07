@@ -61,9 +61,20 @@ while -1 in cartela['regra_simples'].values() and rodadas != 12 or -1 in cartela
                 else:
                     print("Combinação inválida. Tente novamente.")
             rodada_em_andamento = False
-total_simples = sum(cartela['regra_simples'].values())
-total_avancada = sum(cartela['regra_avancada'].values())
-total = total_simples + total_avancada + (35 if total_simples >= 63 else 0)
+            
+total_simples = 0
+for pontos in cartela['regra_simples'].values():
+    if pontos != -1:
+        total_simples += pontos
+
+total_avancada = 0
+for pontos in cartela['regra_avancada'].values():
+    if pontos != -1:
+        total_avancada += pontos
+
+bonus = 35 if total_simples >= 63 else 0
 
 f.imprime_cartela(cartela)
+total = total_simples + total_avancada + bonus
 print(f"Pontuação total: {total}")
+
